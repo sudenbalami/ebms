@@ -71,7 +71,7 @@
 * {	max-height: 10000px;}
 body {
 	margin:0;
-	color:#95a5a6;
+	color:#000;
 	font:12px/16px 'ralewayregular', Arial, Helvetica, sans-serif;
 	background: #fff;
 	min-width: 320px;
@@ -301,6 +301,12 @@ padding:0;
 	overflow: hidden;
 	margin: 0 0 15px;
 }
+
+span.help-block{
+	color: red;
+}
+
+
 .register-form .agree-wrap input{
 	float: left;
 	width: auto;

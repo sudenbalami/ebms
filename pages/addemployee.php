@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="employee-header"><h1>Add Employee</h1></div>
 		<div class="employee-body">
-			<form action="index.php?page=formvalidate" class="employee-form" method="POST">
+			<form action="index.php?page=eadd" class="employee-form" method="POST">
 				<fieldset>
 					<div class="input-wrap">
 		                <input placeholder="Employee Id" name="eid" value="" type="text">
