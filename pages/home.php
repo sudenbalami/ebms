@@ -1,5 +1,8 @@
 <?php
-session_start();
+// session_start();
+if (isset($_SESSION['users'])) {
+		header("location: index.php?page=dashboard");
+	}
 ?>
 <div id="divLoginWrapper">
 	<div class="login-header">
@@ -14,11 +17,14 @@ session_start();
 	</div>
 	<div class="login-body-holder">
 		<form action="index.php?page=validatelogin" method="post" class="login-form">
+			
+			<?php if(isset($_SESSION['deny'])):?>
+				<?=$_SESSION['deny'];?>
+			<?php endif;?>
 			<fieldset>
 				<label for="username">Username</label>
 				<input type="text" id="username" name="email">
 				<?php if (!empty($_SESSION['emailerror'])): ?>
-
 					<span class="help-block"><?php echo  $_SESSION['emailerror']; ;?></span>
 				<?php endif;?>
 
@@ -32,7 +38,7 @@ session_start();
 			</fieldset>
 		</form>
 		<div class="forgot-section">
-			<span class="forgot"><a href="#">Forgot</a></span>
+			<span class="forgot"><a href="index.php?page=forget">Forgot</a></span>
 			<span class="new-account"><a href="index.php?page=register">New Account</a></span>
 		</div>
 	</div>

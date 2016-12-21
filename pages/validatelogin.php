@@ -43,13 +43,11 @@ session_start();
 				$_SESSION['passworderror'] = 'Minimum password length should be 6 or greater';
 				header("Location: index.php?page=home");
 				exit();
-			}
-
+			}			
 			$_SESSION['passworderror'] = '';
 		}
 	
 
-	
 		$email = $_POST['email'];
 		$password = md5($_POST['password']);
 

@@ -1,6 +1,8 @@
-<?php 
+<?php
+
 	if (!isset($_SESSION['users'])) {
-		header("location:../index.php?page=login");
+		header("location: index.php?page=home");
+		$_SESSION['deny'] = 'Not enough permission';
 	}else{
 		$newuser = $_SESSION['users'];
 	}
@@ -9,6 +11,7 @@
 	$dbuser = "root";
 	$dbpass = "";
 	$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+
 	if(!$conn){
 		die("unable to connect");
 		}
@@ -16,6 +19,7 @@
 
 		$sql = "SELECT * FROM employee";
 		$employee = mysql_query($sql, $conn);
+
 		/*$totalRows = mysql_num_rows($checklogin);
 		$userDetail = mysql_fetch_assoc($checklogin);*/
 
@@ -53,12 +57,14 @@
 			<ul class="employee-list">
 				<li class="head">
 					<div class="eid"><span>Id</span></div>
+					<div class="ephoto"><span>Employee photo</span></div>
 					<div class="ename"><span>Employee Name</span></div>
 					<div class="edesignation"><span>Designation</span></div>
 					<div class="email">Email</div>
 					<div class="ephone">Phone</div>
 					<div class="ejoin">Join Date</div>
 					<div class="eaddress">Address</div>
+					<div class="edit">Edit/Delete</div>
 				</li>
 
 
@@ -68,12 +74,14 @@
 
 				<li>
 					<div class="eid"><span><?php echo $row['eid'];?></span></div>
+					<div class="ephoto"><img src="<?php echo "assets/images/".$row['ephoto'];?>" style="max-width: 150px; height: auto;"/></div>
 					<div class="ename"><span><?php echo $row['ename'];?></span></div>
 					<div class="edesignation"><span><?php echo $row['edesignation'];?></span></div>
 					<div class="email"><?php echo $row['email'];?></div>
 					<div class="ephone"><?php echo $row['ephone'];?></div>
 					<div class="ejoin"><?php echo $row['ejoin'];?></div>
 					<div class="eaddress"><?php echo $row['eaddress'];?></div>
+					<div class="edit"><a href="index.php?page=edit&id=<?php echo $row['id'];?>">Edit</a> &nbsp; <a href="index.php?page=delete&id=<?php echo $row['id'];?>">Delete</a></div>
 				</li>
 
 			<?php endwhile;?>

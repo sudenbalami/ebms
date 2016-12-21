@@ -285,6 +285,7 @@ padding:0;
 .employee-form .input-wrap{
 	padding: 0;
 	margin: 0 0 15px;
+	overflow: hidden;
 }
 .register-form input,
 .register-form select,
@@ -413,7 +414,16 @@ h2{
 }
 .employee-list li div{
 	float: left;
-	width: 14%;
-	height: 60px;
+	width: 10%;
+	height: auto;
 	padding: 18px;
+}
+.employee-list li div img{display: block;}
+.employee-form input[type="file"]{
+	border: none;
+	float: left;
+	height: 40px;
+	padding: 0;
+	cursor: pointer;
+	background: #c31a1a;
 }
